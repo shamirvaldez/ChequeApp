@@ -1,0 +1,62 @@
+﻿@model ChequeApp.Models.CHEQUE
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Creacion de Cheque</h2>
+
+<br/>
+<hr />
+
+@using (Html.BeginForm("Create", "Cheques"))
+{
+<form>
+    @*@Html.AntiForgeryToken()*@
+
+
+    <div class="form-row">
+        <div class="form-group col-md-3">
+            @Html.LabelFor(Model => Model.PAGO.CLIENTE.Nombre)
+            @Html.TextBoxFor(Model => Model.PAGO.CLIENTE.Nombre)
+        </div>
+
+        <div class="form-group col">
+            @Html.LabelFor(Model => Model.PAGO.CLIENTE.Apellido)
+            @Html.TextBoxFor(Model => Model.PAGO.CLIENTE.Apellido)
+        </div>
+
+    </div>
+
+    <div class="form-group">
+      @Html.LabelFor(Model => Model.PAGO.CLIENTE.Cedula)
+            <br />
+      @Html.TextBoxFor(Model => Model.PAGO.CLIENTE.Cedula)
+    </div>
+
+
+ 
+        <div class="form-group">
+        @Html.LabelFor(Model => Model.PAGO.Monto)
+            <br />
+       @Html.TextBoxFor(Model => Model.PAGO.Monto)
+
+        </div>
+
+
+       <div class="form-group">
+       @Html.LabelFor(Model => Model.NumeroCheque)
+        <br />
+       @Html.TextBoxFor(Model => Model.NumeroCheque)
+            </div>
+ 
+
+        <div>
+         <div>
+             <input type="submit" value="Create" class="btn btn-primary" />
+          </div>
+       </div>
+
+</form>
+}
+
+

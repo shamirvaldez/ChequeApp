@@ -1,0 +1,41 @@
+﻿@model List<ChequeApp.Models.CHEQUE>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <thead class = "thead-dark">
+        <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Cedula</th>
+            <th scope="col">Monto</th>
+            <th scope="col">Numero de Cheque</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Opciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+        <tr>
+            <td>@item.PAGO.CLIENTE.Nombre</td>
+            <td>@item.PAGO.CLIENTE.Apellido</td>
+            <td>@item.PAGO.CLIENTE.Cedula</td>
+            <td>@item.PAGO.Monto</td>
+            <td>@item.NumeroCheque</td>
+            <td>@item.FechaSistema</td>
+            <td>@Html.ActionLink("Editar", "Update", new ChequeApp.Models.CHEQUE { Id = item.Id  })</td>
+            <td>@Html.ActionLink("Eliminar", "Delete", new ChequeApp.Models.CHEQUE { Id = item.Id })</td>
+
+        </tr>
+        }
+    </tbody>
+</table>
+
+ 
+
+
+@Html.ActionLink("Crear Cheque", "Create")
